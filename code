@@ -1,0 +1,67 @@
+package tabbedpanetest;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
+/**
+ *
+ * @author user
+ */
+public class TabbedPaneTest extends JFrame{
+ private  static final long serialVersionUID = 1L;
+        ImageIcon icon1 = new ImageIcon("images/1.jpg");
+        ImageIcon icon2 = new ImageIcon("images/2.jpg");
+        ImageIcon icon3 = new ImageIcon("images/3.jpg");
+        ImageIcon icon4 = new ImageIcon("images/4.jpg");
+        ImageIcon icon5 = new ImageIcon("images/5.jpg");
+	public TabbedPaneTest()
+	{
+super("Каталог автомобилей Nissan Laurel / Nissan Cefiro");
+setDefaultCloseOperation(EXIT_ON_CLOSE);
+JTabbedPane tabsLeft = new JTabbedPane(JTabbedPane.BOTTOM, JTabbedPane.SCROLL_TAB_LAYOUT);
+
+JPanel panel1 = new JPanel();
+panel1.setLayout(new GridLayout(2,1,5,5));
+tabsLeft.addTab("Nissan Laurel",panel1);
+panel1.add(new JLabel(icon1));
+panel1.add(new JLabel("<html><div style='text-align: center;'>Nissan Laurel C33<br>Годы выпуска: 1989 - 1992",SwingConstants.CENTER));
+
+JPanel panel2 = new JPanel();
+panel2.setLayout(new GridLayout(2,1,5,5));
+tabsLeft.addTab("Nissan Cefiro", panel2);
+panel2.add(new JLabel(icon2));
+panel2.add(new JLabel("<html><div style='text-align: center;'>Nissan Cefiro A31<br>Годы выпуска: 1989 - 1992",SwingConstants.CENTER));
+
+JTabbedPane tabsRight = new JTabbedPane(JTabbedPane.TOP);
+JPanel panel3 = new JPanel();
+tabsRight.addTab("Доступные цвета",panel3);
+panel3.add(new JLabel(icon3));
+
+JPanel panel4 = new JPanel();
+tabsRight.addTab("Доступные двигатели",panel4);
+panel4.add(new JLabel(icon4));
+
+JPanel panel5 = new JPanel();
+tabsRight.addTab("Доступные опции",panel5);
+panel5.add(new JLabel(icon5));
+		
+getContentPane().setLayout(new GridLayout());
+getContentPane().add(tabsLeft);
+getContentPane().add(tabsRight);
+setSize(800, 400);
+pack();
+setVisible(true);
+ 
+} 
+}
